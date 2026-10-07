@@ -159,15 +159,4 @@ This project demonstrates the complete workflow of a binary classification probl
 - Matplotlib
 - Seaborn
 - Scikit-learn
-- Jupyter Notebook
-
----
-
-## Project Structure
-
-```text
-rain-prediction-logistic-regression/
-│
-├── README.md
-├── weatherAUS_reduced_columns_52_48.csv
-└── weather_prediction_logistic_regression.ipynbin tomorrow based on different weather conditions.
+- Jupyter Notebook.
