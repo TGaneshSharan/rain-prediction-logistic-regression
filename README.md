@@ -1,67 +1,157 @@
-# Rain Prediction using Logistic Regression
+# Rain Prediction Using Logistic Regression
 
 ## Project Overview
 
-This project predicts whether it will rain tomorrow using Machine Learning.
+This project predicts whether it will rain tomorrow using historical weather data from Australia.
 
-The target variable is `RainTomorrow`, which contains two possible values:
-- Yes
-- No
+The project uses **Logistic Regression**, a supervised machine learning algorithm used for binary classification.
+
+The main objective is to understand the complete machine learning workflow, including data exploration, data preprocessing, feature engineering, model training, and evaluation.
+
+---
+
+## Objective
+
+The objective of this project is to predict the value of **RainTomorrow** as:
+
+- `0` → No Rain
+- `1` → Rain
+
+The model learns patterns from historical weather conditions and predicts whether rainfall is expected on the following day.
+
+---
 
 ## Dataset
 
-The dataset contains Australian weather information with 142,193 rows and 24 columns.
+The dataset contains historical weather observations from Australia.
 
-The features include:
+### Dataset Details
 
+- **Total Records:** 66,410
+- **Total Features:** 17
+- **Target Variable:** `RainTomorrow`
+- **Classes:** No / Yes
+- **Class Distribution:** Approximately 52% No and 48% Yes
+
+The dataset contains real weather observations, with missing values handled during preprocessing.
+
+---
+
+## Features Used
+
+The following weather-related features were used:
+
+- Date
 - Location
 - MinTemp
 - MaxTemp
 - Rainfall
-- Evaporation
-- Sunshine
+- WindGustDir
 - WindGustSpeed
+- WindDir9am
+- WindDir3pm
 - WindSpeed9am
 - WindSpeed3pm
 - Humidity9am
 - Humidity3pm
 - Pressure9am
 - Pressure3pm
-- Cloud9am
-- Cloud3pm
-- Temp9am
-- Temp3pm
 - RainToday
-- RISK_MM
 
-The target variable is `RainTomorrow`.
+### Target Variable
 
-## Machine Learning Workflow
+`RainTomorrow`
 
-1. Load the dataset
-2. Check the shape and columns
-3. Check data types
-4. Handle missing values
-5. Perform Exploratory Data Analysis
-6. Separate features (X) and target (y)
-7. Encode categorical variables
-8. Split the data into training and testing sets
-9. Scale the features
-10. Train the Logistic Regression model
-11. Evaluate the model
+- `No` → 0
+- `Yes` → 1
 
-## Algorithm Used
+---
+
+## Data Preprocessing
+
+The following preprocessing steps were performed:
+
+1. Loaded the dataset using Pandas.
+2. Checked the structure and data types.
+3. Checked missing values.
+4. Checked duplicate records.
+5. Converted the `Date` column into:
+   - Year
+   - Month
+   - Day
+6. Removed the original `Date` column after feature extraction.
+7. Converted the target variable into binary values.
+8. Split the dataset into training and testing sets.
+9. Filled missing numerical values using the mean.
+10. Filled missing categorical values using the mode.
+11. Converted categorical variables into numerical form using one-hot encoding.
+12. Checked for outliers using the IQR method.
+13. Standardized features using `StandardScaler`.
+
+---
+
+## Exploratory Data Analysis
+
+Exploratory Data Analysis was performed to understand:
+
+- Dataset structure
+- Missing values
+- Target variable distribution
+- Numerical feature statistics
+- Duplicate records
+- Outliers
+- Rainfall-related patterns
+
+Visualizations were created using Matplotlib and Seaborn.
+
+---
+
+## Machine Learning Model
 
 ### Logistic Regression
 
-Logistic Regression is a classification algorithm used to predict whether it will rain tomorrow or not.
+Logistic Regression was selected because the target variable contains two classes:
 
-The model predicts two classes:
+- No Rain
+- Rain
 
-- `Yes` → Rain tomorrow
-- `No` → No rain tomorrow
+The model was trained using the preprocessed training data and evaluated on unseen test data.
 
-## Tools and Technologies
+---
+
+## Model Evaluation
+
+The model was evaluated using:
+
+- Accuracy
+- Precision
+- Recall
+- F1 Score
+- ROC-AUC
+
+### Results
+
+| Metric | Score |
+|---|---:|
+| Accuracy | 77.96% |
+| Precision | 78.88% |
+| Recall | 73.87% |
+| F1 Score | 76.29% |
+| ROC-AUC | 86.36% |
+
+---
+
+## Conclusion
+
+The Logistic Regression model achieved an accuracy of approximately **77.96%** on the test data.
+
+The ROC-AUC score of **86.36%** indicates that the model has a good ability to distinguish between rainy and non-rainy days.
+
+This project demonstrates the complete workflow of a binary classification problem, from data preprocessing and exploratory data analysis to machine learning model training and evaluation.
+
+---
+
+## Technologies Used
 
 - Python
 - Pandas
@@ -71,10 +161,13 @@ The model predicts two classes:
 - Scikit-learn
 - Jupyter Notebook
 
-## Project File
+---
 
-The complete Jupyter Notebook containing the code and analysis is available in this repository.
+## Project Structure
 
-## Conclusion
-
-A Logistic Regression model was trained to predict whether it will rain tomorrow based on different weather conditions.
+```text
+rain-prediction-logistic-regression/
+│
+├── README.md
+├── weatherAUS_reduced_columns_52_48.csv
+└── weather_prediction_logistic_regression.ipynbin tomorrow based on different weather conditions.
